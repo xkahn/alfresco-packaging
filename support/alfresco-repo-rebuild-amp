@@ -1,0 +1,27 @@
+#!/bin/sh 
+
+# Rebuild the list of patches (amps) in the alfresco.war file
+# Also copy in the system java mail packages for Alfresco use
+#
+# This script assumes:
+# * the server is stopped
+# * a backup of the alfresco.war file is in: /usr/share/alfresco-enterprise/alfresco-real.war
+# * the real alfresco.war file is: /usr/share/alfresco-enterprise/alfresco.war
+# * amps are located at /usr/share/alfresco-enterprise/amp.d
+# * The exploded alfresco.war is located: /var/lib/tomcat7/webapps/alfresco
+# * Java is set up correctly
+# * The amp installer is located at: /usr/share/alfresco-enterprise and only one copy exists
+
+cp /usr/share/alfresco-enterprise/alfresco-real.war /usr/share/alfresco-enterprise/alfresco.war
+rm -rf /var/lib/tomcat7/webapps/alfresco
+java -jar /usr/share/alfresco-enterprise/alfresco-mmt.jar install /usr/share/alfresco-enterprise/amp.d /usr/share/alfresco-enterprise/alfresco.war -directory -nobackup -force
+chmod a+r /usr/share/alfresco-enterprise/alfresco.war
+cd /usr/share/alfresco-enterprise/
+mkdir -p WEB-INF/lib
+cp /usr/share/java/classpathx-mail/mail-1.3.1-providers.jar /usr/share/java/classpathx-mail/mail-1.3.1-api.jar WEB-INF/lib
+zip -q -d /usr/share/alfresco-enterprise/alfresco.war WEB-INF/lib/mail.jar
+zip -q -u /usr/share/alfresco-enterprise/alfresco.war WEB-INF/lib/*
+rm -rf WEB-INF/lib
+# Remove the tomcat7 cache
+rm -rf /var/cache/tomcat7/work/Catalina
+true

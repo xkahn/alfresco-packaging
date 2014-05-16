@@ -1,0 +1,20 @@
+#!/bin/sh 
+
+# Rebuild the list of patches (amps) in the share.war file
+#
+# This script assumes:
+# * the server is stopped
+# * a backup of the share.war file is in: /usr/share/alfresco-enterprise/share-real.war
+# * the real share.war file is: /usr/share/alfresco-enterprise/share.war
+# * amps are located at /usr/share/alfresco-enterprise/shareamp.d
+# * The exploded share.war is located: /var/lib/tomcat7/webapps/alfresco
+# * Java is set up correctly
+# * The amp installer is located at: /usr/share/alfresco-enterprise and only one copy exists
+
+cp /usr/share/alfresco-enterprise/share-real.war /usr/share/alfresco-enterprise/share.war
+rm -rf /var/lib/tomcat7/webapps/share
+java -jar /usr/share/alfresco-enterprise/alfresco-mmt.jar install /usr/share/alfresco-enterprise/shareamp.d /usr/share/alfresco-enterprise/share.war -directory -nobackup -force
+chmod a+r /usr/share/alfresco-enterprise/share.war
+# Remove the tomcat7 cache
+rm -rf /var/cache/tomcat7/work/Catalina
+true
