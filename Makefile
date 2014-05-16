@@ -17,7 +17,7 @@ rpm: pkgrpm
 pkgdeb:
 
 pkgrpm: alfresco-${TYPE}-${VERSION}.zip dist
-	cp alfresco-${TYPE}-${APPSERVER}-${VERSION}.tar.gz support/alfresco-rebuild-amp support/alfresco-share-rebuild-amp support/alfresco support/alfresco.conf support/alfresco-ooo support/jk-workers.properties support/email-server.properties support/openoffice-document-formats.xml ~/rpmbuild/SOURCES/
+	cp alfresco-${TYPE}-${APPSERVER}-${VERSION}.tar.gz support/alfresco-repo-rebuild-amp support/alfresco-share-rebuild-amp support/alfresco.conf support/jk-workers.properties ~/rpmbuild/SOURCES/
 	rpmbuild -ba alfresco-${TYPE}-${APPSERVER}.spec
 
 alfresco-community-4.2.f.zip:
