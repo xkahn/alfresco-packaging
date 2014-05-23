@@ -1,0 +1,2 @@
+#/!bin/sh
+echo "Please create a database for alfresco in either mysql or postgres and edit the alfresco.global.properties file in /etc/alfresco to complete the installation."

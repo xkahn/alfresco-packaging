@@ -1,0 +1,11 @@
+/usr/share/alfresco/web/alfresco-global.properties /etc/alfresco/alfresco-global.properties
+/usr/share/alfresco/repo-amp.d /etc/alfresco/repo-amp.d
+/usr/share/alfresco/share-amp.d /etc/alfresco/share-amp.d
+/usr/share/alfresco/web/web-extenions.d /etc/alfresco/web-extensionis.d
+/usr/share/alfresco/web/extensions.d /etc/alfresco/extensions.d
+/usr/share/alfresco/web/messages.d /etc/alfresco/messages.d
+/usr/share/java/mysql.jar /usr/share/alfresco/web/mysql.jar
+/usr/share/java/postgresql.jar /usr/share/alfresco/web/postgresql.jar
+/usr/share/java/xalan2.jar /usr/share/aflresco/web/xalan2.jar
+/usr/share/java/serializer.jar /usr/share/aflresco/web/serializer.jar
+

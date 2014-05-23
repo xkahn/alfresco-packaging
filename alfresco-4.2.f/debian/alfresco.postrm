@@ -1,0 +1,8 @@
+#!/bin/sh
+for port in 21 137 138 139 445 143
+do
+   if [ -e /etc/authbind/byport/$port ]; then
+   	rm /etc/authbind/byport/$port
+   fi
+done
+

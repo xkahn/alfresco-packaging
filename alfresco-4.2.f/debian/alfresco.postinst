@@ -1,0 +1,13 @@
+#!/bin/bash
+set -e
+chown tomcat7:tomcat7 /var/lib/alfresco/ 
+uid=`id -u tomcat7`
+for port in 21 137 138 139 445 143
+do 
+	touch /etc/authbind/byport/$port
+	chown tomcat7:tomcat7 /etc/authbind/byport/$port
+	chmod 500 /etc/authbind/byport/$port
+done
+dialog --title "Next Steps" \
+	--msgbox  "Please configure a database in /etc/alfresco/alfresco-global.properties. You will then need to restart tomcat." 20 100
+clear

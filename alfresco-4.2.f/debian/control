@@ -1,0 +1,17 @@
+Source: alfresco
+Section: java
+Priority: optional
+Maintainer: Mark Clarke <mark@>jumpingbean.co.za>
+Build-Depends: debhelper (>= 8.0.0)
+Standards-Version: 3.9.4
+Homepage: http://www.alfresco.com/products/community 
+#Vcs-Git: git://git.debian.org/collab-maint/alfresco.git
+#Vcs-Browser: http://git.debian.org/?p=collab-maint/alfresco.git;a=summary
+
+Package: alfresco
+Architecture: all
+Depends: tomcat7, mysql-server | postgresql, libmysql-java|libpostgresql-jdbc-java, dialog, libxalan2-java, libserializer-java, imagemagick, jodconverter,libreoffice-common
+Replaces: tomcat7 
+Description: Alfresco community edition 
+ Leading enterprise content managment system for document management, team collaboration and workflow. 
+
