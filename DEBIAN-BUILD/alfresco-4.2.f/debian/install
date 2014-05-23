@@ -1,0 +1,12 @@
+share.war /var/lib/tomcat7/webapps
+alfresco.war /var/lib/tomcat7/webapps
+licenses /usr/share/alfresco
+messages.d /usr/share/alfresco/web
+extension.d /usr/share/alfresco/web
+web-extension.d /usr/share/alfresco/web
+debian/alfresco-global.properties /usr/share/alfresco/web
+debian/repo-amp.d /usr/share/alfresco
+debian/share-amp.d /usr/share/alfresco
+debian/catalina.properties /etc/tomcat7/
+debian/setenv.sh /usr/share/tomcat7/bin/
+debian/tomcat7 /etc/default/
