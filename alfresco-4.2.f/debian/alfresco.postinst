@@ -8,6 +8,28 @@ do
 	chown tomcat7:tomcat7 /etc/authbind/byport/$port
 	chmod 500 /etc/authbind/byport/$port
 done
-dialog --title "Next Steps" \
-	--msgbox  "Please configure a database in /etc/alfresco/alfresco-global.properties. You will then need to restart tomcat." 20 100
+dialog --title "Database Selection" --radiolist "Database" 10 100 2 1 Postgresql off 2 MySQL off 2>/tmp/ans
+db=`cat /tmp/ans`
+
+if [ "$db" -eq 2 ]; then
+ driver="com.mysql.jdbc.Driver"
+ url="jdbc:mysql:\/\/localhost\/alfresco?useUnicode=yes\&characterEncoding=UTF-8"
+else
+ driver="org.postgresql.Driver"
+ url="jdbc:postgresql:\/\/localhost:5432\/alfresco"
+fi 
+
+dialog --title "Database User" --inputbox "Database user name" 10 100 2>/tmp/ans
+dbuser=`cat /tmp/ans`
+
+dialog --title "Database User Password" --passwordbox "Database user password" 10 100 2>/tmp/ans
+dbpasswd=`cat /tmp/ans`
+
+imgver=`convert --version | cut -d " " -f 3 | head -n 1`
+imgver=${imgver%-*}
+
+sed -e "s/{dbuser}/$dbuser/" -e "s/{dbpasswd}/$dbpasswd/" -e "s/{driver}/$driver/" \
+    -e "s/{img-ver}/$imgver/" -e "s/{url}/$url/"  /usr/share/alfresco/web/alfresco-global.properties.tmpl > /usr/share/alfresco/web/alfresco-global.properties
+
 clear
+

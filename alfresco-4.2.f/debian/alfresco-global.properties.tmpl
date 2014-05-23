@@ -11,8 +11,8 @@ dir.root=/var/lib/alfresco/
 #
 # Sample database connection properties
 #
-#db.username=alfresco
-#db.password=alfresco
+db.username={dbuser}
+db.password={dbpasswd}
 
 #
 # External locations
@@ -27,6 +27,7 @@ jodconverter.enabled=true
 jodconverter.officeHome=/usr/lib/libreoffice 
 jodconverter.portNumbers=8101
 img.root=/usr
+img.coders=/usr/lib/x86_64-linux-gnu/ImageMagick-{img-ver}/modules-Q16/coders
 #pdf2swf has been removed from swftools in debain due to security issues with the xpf library it uses
 #If you want pdf2swf you will need to compile from source.
 #swf.exe=/usr/bin/pdf2swf 
@@ -39,6 +40,9 @@ img.root=/usr
 # upgrading to a new version, this can be disabled.
 #
 #db.schema.update=true
+db.driver={driver}
+db.url={url}
+
 
 #
 # MySQL connection

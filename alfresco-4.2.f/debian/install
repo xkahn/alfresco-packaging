@@ -4,7 +4,7 @@ licenses /usr/share/alfresco
 messages.d /usr/share/alfresco/web
 extension.d /usr/share/alfresco/web
 web-extension.d /usr/share/alfresco/web
-debian/alfresco-global.properties /usr/share/alfresco/web
+debian/alfresco-global.properties.tmpl /usr/share/alfresco/web
 debian/repo-amp.d /usr/share/alfresco
 debian/share-amp.d /usr/share/alfresco
 debian/catalina.properties /etc/tomcat7/
